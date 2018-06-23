@@ -1,20 +1,19 @@
 package no.bjerke.checks;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class ChecksTest {
+public class ChecksTest {
 
-    @Test
-    void should_throw_exception_with_expected_message_if_object_is_null() {
-        final var exception = assertThrows(IllegalArgumentException.class, () -> Checks.notNull(null));
-        assertEquals("Object cannot be null", exception.getMessage());
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_expected_exception_if_object_is_null() {
+        Checks.notNull(null);
     }
 
     @Test
-    void non_null_value_should_return_expected_value() {
-        final var result = Checks.notNull("input");
+    public void non_null_value_should_return_expected_value() {
+        final String result = Checks.notNull("input");
         assertEquals("input", result);
     }
 
