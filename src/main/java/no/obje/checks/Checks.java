@@ -1,4 +1,4 @@
-package no.bjerke.checks;
+package no.obje.checks;
 
 public final class Checks {
 
